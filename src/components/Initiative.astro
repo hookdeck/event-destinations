@@ -1,0 +1,209 @@
+---
+import { Image } from 'astro:assets';
+import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
+---
+<h2 class="bold-m">A decade of webhooks: Progress with limits</h2>
+<p class="muted">
+  Over the last 10 years, webhooks have become the go-to mechanism for
+  delivering events from developer platforms to support other platform
+  integrations, custom integrations, and workflows. Webhooks have been
+  transformative and offer wide compatibility but come with well-known issues:
+</p>
+<ul class="list list-danger">
+  {
+    [
+      {
+        title: "Lack of broadly adopted standards",
+        description:
+          "No universal approach to retries, timeouts, security, or payload format.",
+      },
+      {
+        title: "Performance bottlenecks",
+        description:
+          "Suboptimal for high-throughput scenarios; no batching, efficient encoding (e.g., Protobuf), or persistent HTTP connections without consumer-side Keep Alive dependency.",
+      },
+      {
+        title: "Opt-in security",
+        description:
+          "Security through verification is opt-in and often more complex than API authentication, making secure integrations tedious or incorrectly implemented.",
+      },
+      {
+        title: "High operational & infrastructural costs",
+        description:
+          "High failure rates and inconsistent event consumer performance make webhooks expensive to operate and maintain.",
+      },
+    ].map(({ title, description }) => (
+      <li>
+        <p>{title}</p>
+        <p class="muted">{description}</p>
+      </li>
+    ))
+  }
+</ul>
+<p class="muted">
+  Webhooks are the least common denominator. They offer amazing reach but are
+  less capable. How can you combine the reach of webhooks with the capabilities
+  of other event paradigms? With Event Destinations.
+</p>
+<blockquote>
+  <div class="quote-author"><Image src="/src/assets/patrick-malatack.png" width={24} height={24} alt="Patrick Malatack" />PATRICK MALATACK, <span class="muted">FORMER VP PRODUCT @ TWILIO</span></div>
+  “At Twillio we would accidentally but regularly DDOS our users webhooks endpoints.”
+</blockquote>
+<h2 class="bold-m">Reimagining event delivery</h2>
+<p class="muted">
+  Best practices today often dictate validating and queuing webhooks via a
+  message bus upon receipt. This raises a fundamental question: Why depend on
+  inefficient public HTTP endpoints? Why not send events directly to secure and
+  efficient event destinations?
+</p>
+<div class="img-wrapper">
+  <WebhooksIllustration />
+</div>
+<h2 class="bold-m">The emergence of event destinations</h2>
+<p class="muted">
+  Pioneers in the industry are shifting away from traditional webhooks toward a
+  more versatile model. For example, Stripe’s Event Destinations allow
+  developers to select the best destination for their needs—webhooks are just
+  one of a few options. This shift brings clear advantages.
+</p>
+<p class="muted"><em class="muted">For publishers:</em></p>
+<ul class="list list-success">
+  {
+    [
+      {
+        title: "Efficiency gains",
+        description:
+          "Reduced failure rates and retried deliveries compared to public HTTP endpoints.",
+      },
+      {
+        title: "Protocol flexibility",
+        description: "Leverage more efficient protocols and encodings.",
+      },
+      {
+        title: "Batch publishing",
+        description:
+          "Unlock improved performance for high-throughput scenarios.",
+      },
+    ].map(({ title, description }) => (
+      <li>
+        <p>{title}</p>
+        <p class="muted">{description}</p>
+      </li>
+    ))
+  }
+</ul>
+<p class="muted"><em class="muted">For consumers:</em></p>
+<ul class="list list-success">
+  {
+    [
+      {
+        title: "Streamlined infrastructure & operations",
+        description:
+          "Eliminate the need for API gateways, load balancers, HTTP consumers, and other infrastructure components, reducing maintenance overhead.",
+      },
+      {
+        title: "Predictable behavior",
+        description:
+          "Standardize event expectations—the message bus handles timeouts, retries, and security.",
+      },
+    ].map(({ title, description }) => (
+      <li>
+        <p>{title}</p>
+        <p class="muted">{description}</p>
+      </li>
+    ))
+  }
+</ul>
+<h2 class="bold-m">Better developer experience for all</h2>
+<p class="muted">
+  At the core of this shift is a commitment to enhancing the developer
+  experience. Platforms can improve the developer experience by expanding
+  platform event delivery options and capabilities, moving beyond only offering
+  traditional webhooks by supporting Event Destinations such as AWS SQS, GCP
+  PubSub, Hookdeck, RabbitMQ, and Kafka, to name a few.
+</p>
+<p class="muted">
+  This DX evolution helps everyone; developers gain tools that are more powerful
+  and simpler to use and maintain. Developers are, therefore, more successful
+  and faster at adopting developer platforms.
+</p>
+<p class="muted">
+  <em class="muted">In particular:</em>
+</p>
+<ul class="list list-success">
+  {
+    [
+      {
+        title: "Ease of integration",
+        description:
+          "Developers no longer need to set up and manage HTTP endpoints, debug connection issues, or manually handle retries and timeouts. Instead, they can focus on building value-driven features.",
+      },
+      {
+        title: "Reduced cognitive load",
+        description:
+          "Standardization in retries, security, and performance handling allows developers to rely on consistent, predictable event delivery without reinventing the wheel.",
+      },
+      {
+        title: "Built-in scalability",
+        description:
+          "As systems scale, efficient protocols, batching, and proven resilient infrastructure ensure event delivery remains reliable, even under high throughput.",
+      },
+    ].map(({ title, description }) => (
+      <li>
+        <p>{title}</p>
+        <p class="muted">{description}</p>
+      </li>
+    ))
+  }
+</ul>
+<p class="muted">
+  This evolution isn’t just about solving pain points – it’s about unlocking new
+  possibilities for developers building event-driven applications. By
+  prioritizing interoperability, security, and efficiency, Event Destinations
+  represent the next step in creating a developer experience that empowers
+  everyone.
+</p>
+<h2 class="bold-m">The vision</h2>
+<p class="muted">
+  Webhooks have brought us to where we are today and will undoubtedly remain a
+  cornerstone of event interoperability for the foreseeable future. However, as
+  the industry evolves, the path forward lies in progressively adopting
+  interoperable, secure, and efficient Event Destinations.
+</p>
+<p class="muted">
+  By enhancing existing webhook capabilities while introducing new destination
+  types, developers can transition at their own pace, maintain backward
+  compatibility and leverage the best of both worlds.
+</p>
+<p class="muted">
+  This incremental approach ensures continuity while enabling innovation,
+  simplifying event-driven architectures, and creating better developer
+  experiences for everyone.
+</p>
+
+<style>
+  blockquote {
+    border: 1px dashed var(--outline-neutral);
+    padding: var(--spacing-6) var(--spacing-4) ;
+    margin: 0;
+    margin-top: var(--spacing-18);
+    margin-bottom: var(--spacing-18);
+    font-style: italic;
+    position: relative;
+    .quote-author {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      position: absolute;
+      top: -11px;
+      left: var(--spacing-2);
+      background-color: var(--background);
+      font-size: var(--font-size-s);
+      line-height: var(--font-line-height-s);
+      letter-spacing: var(--font-letter-spacing-s);
+      font-style: normal;
+      padding: 0 var(--spacing-2);
+    }
+  }
+</style>
+

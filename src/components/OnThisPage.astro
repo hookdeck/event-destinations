@@ -1,0 +1,105 @@
+<aside>
+  <span class="muted regular-xs">ON THIS PAGE</span>
+  <ul>
+    <li><a href="#initiative">01_Initiative</a></li>
+    <li><a href="#features">02_Features</a></li>
+    <li><a href="#implementations">03_Implementations</a></li>
+    <li><a href="#people">04_People</a></li>
+    <li><a href="#contact">05_Contact</a></li>
+  </ul>
+</aside>
+
+<script>
+  // Add intersection observer for navigation
+  const navLinks = document.querySelectorAll("aside ul a");
+  const sections = document.querySelectorAll("section[id]");
+
+  const createObserverCallback =
+    (isLastSection: boolean) => (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove active class from all links
+          navLinks.forEach((link) => link.classList.remove("active"));
+
+          // For the last section, only activate if scrolled near bottom
+          if (isLastSection) {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const nearBottom =
+              document.documentElement.scrollHeight - scrollPosition < 100;
+            if (!nearBottom) return;
+          }
+
+          // Add active class to corresponding nav link
+          const activeId = entry.target.id;
+          const activeLink = document.querySelector(
+            `aside ul a[href="#${activeId}"]`
+          );
+          if (activeLink) activeLink.classList.add("active");
+        }
+      });
+    };
+
+  const observer = new IntersectionObserver(createObserverCallback(false), {
+    rootMargin: "-10% 0px -60% 0px",
+    threshold: 0,
+  });
+
+  const observerLastEntry = new IntersectionObserver(
+    createObserverCallback(true),
+    {
+      rootMargin: "0px 0px 0px 0px",
+      threshold: 0,
+    }
+  );
+
+  sections.forEach((section, i) =>
+    i === sections.length - 1
+      ? observerLastEntry.observe(section)
+      : observer.observe(section)
+  );
+</script>
+
+<style>
+  aside {
+    position: sticky;
+    top: 124px;
+    max-height: 100vh;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: var(--spacing-2);
+
+    li {
+      margin: 0;
+      padding: 0;
+      border: none;
+      a {
+        text-decoration: none;
+        color: var(--foreground-neutral-3);
+        position: relative;
+        text-transform: uppercase;
+        font-size: var(--font-size-xs);
+        line-height: var(--font-line-height-xs);
+        letter-spacing: var(--font-letter-spacing-xs);
+        border-left: 2px solid var(--outline-neutral);
+        padding-left: var(--spacing-3);
+        padding-top: var(--spacing-1);
+        padding-bottom: var(--spacing-1);
+        height: 20px;
+        display: flex;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.active {
+          color: var(--foreground-neutral);
+          border-left: 2px solid var(--foreground-neutral);
+        }
+      }
+    }
+  }
+</style>

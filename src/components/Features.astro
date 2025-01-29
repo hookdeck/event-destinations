@@ -1,0 +1,57 @@
+<h2 class="bold-m">Required Features</h2>
+
+<ul class="list list-primary">
+  {
+    [
+      {
+        title: "Support least two event destination types, including webhooks",
+      },
+      {
+        title: "Automatic delivery retries with exponential backoff",
+      },
+      {
+        title: "APIs to create, update and delete destinations",
+      },
+      {
+        title: "Alerts for destination failures",
+      },
+    ].map(({ title }) => (
+      <li>
+        <p>{title}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<h2 class="bold-m">Recommended Features</h2>
+
+<ul class="list list-primary">
+  {
+    [
+      {
+        title: "At-least-once event delivery guarantee",
+      },
+      {
+        title: "Event topics and topics-based subscriptions",
+      },
+      {
+        title: "Auto-disabling of failing destinations after too many failures",
+      },
+      {
+        title: "Developer-facing UX to configure destinations & inspect events",
+      },
+      {
+        title: "Manual retries via UI or API",
+      },
+      {
+        title: "Filtering based on payload content",
+      },
+    ].map(({ title }) => (
+      <li>
+        <p>{title}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<a href="/specifications">View the specification -></a>

@@ -1,0 +1,58 @@
+---
+import "../global.scss";
+import Nav from "../components/Nav.astro";
+import Head from "../components/Head.astro";
+const title = "Specifications | Event Destinations Initiative";
+const description =
+  "Deliver platform events directly to your user’s preferred event destinations: Webhooks, Hookdeck, AWS SQS, RabbitMQ, GCP Pub/Sub, Amazon EventBridge, and Kafka.";
+const tags = [
+  "event destinations",
+  "send webhooks",
+  "event delivery",
+  "event destinations",
+  "event platform",
+];
+---
+
+<html lang="en">
+  <head>
+    <Head />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="tags" content={tags.join(",")} />
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <div></div>
+      <article>
+        <div class="draft">
+          <br />
+          <em class="muted" style="color: red"
+            >The specification is not yet published.</em
+          >
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    width: 100%;
+    padding: var(--spacing-8);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: var(--spacing-8);
+
+    article {
+      max-width: 744px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 744px) {
+      padding: 0 var(--spacing-4);
+    }
+  }
+</style>

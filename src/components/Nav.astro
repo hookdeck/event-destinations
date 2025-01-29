@@ -1,0 +1,174 @@
+---
+const pages = {
+  "/": "Initiative",
+  "/specifications": "Specifications",
+  "/producers": "Event Producers",
+};
+---
+
+<header>
+  <a href="/">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="6" y="6" width="8" height="8" stroke="#A3A093" stroke-width="1.2"
+      ></rect>
+      <rect
+        x="11.4"
+        y="3.4"
+        width="5.2"
+        height="5.2"
+        fill="#A3A093"
+        stroke="#F5F4F1"
+        stroke-width="1.2"></rect>
+      <rect
+        x="3.4"
+        y="11.4"
+        width="5.2"
+        height="5.2"
+        fill="#A3A093"
+        stroke="#F5F4F1"
+        stroke-width="1.2"></rect>
+    </svg>
+  </a>
+  <ul class="desktop">
+    {
+      Object.entries(pages).map(([path, title]) => (
+        <li>
+          <a href={path} class={Astro.url.pathname === path ? "active" : ""}>
+            {title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <select class="mobile">
+    {
+      Object.entries(pages).map(([path, title]) => (
+        <option value={path} selected={Astro.url.pathname === path}>
+          {title}
+        </option>
+      ))
+    }
+  </select>
+  <ul class="right">
+    <li>
+      <a href="https://github.com/hookdeck/eventdestinations">Get Involved ↗</a
+      >
+    </li>
+  </ul>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 58px;
+    padding: 0 var(--spacing-8);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-8);
+    align-items: center;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--outline-neutral);
+    z-index: 1000;
+
+    .mobile {
+      display: none;
+    }
+
+    select {
+      border: none;
+      background-color: transparent;
+    }
+
+    @media (max-width: 744px) {
+      padding: 0 var(--spacing-4);
+      gap: var(--spacing-4);
+      .mobile {
+        display: block;
+      }
+
+      .desktop {
+        display: none;
+      }
+    }
+
+    > a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: url(/images/hr-bg-light.svg) 0% 0% / 4px 7px repeat;
+    }
+
+    .right {
+      margin-left: auto;
+    }
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-8);
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        height: 58px;
+        text-decoration: none;
+        color: var(--foreground-neutral-3);
+        position: relative;
+        text-transform: uppercase;
+        font-size: var(--font-size-s);
+        line-height: var(--font-line-height-s);
+        letter-spacing: var(--font-letter-spacing-s);
+
+        &:hover {
+          text-decoration: none;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--foreground-neutral-3);
+          }
+        }
+        &.active {
+          color: var(--foreground-neutral);
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--foreground-neutral);
+          }
+        }
+      }
+    }
+  }
+</style>
