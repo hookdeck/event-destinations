@@ -1,7 +1,9 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
+import PatrickMalatack from "../assets/PatrickMalatack.png";
 ---
+
 <h2 class="bold-m">A decade of webhooks: Progress with limits</h2>
 <p class="muted">
   Over the last 10 years, webhooks have become the go-to mechanism for
@@ -46,7 +48,14 @@ import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
   of other event paradigms? With Event Destinations.
 </p>
 <blockquote>
-  <div class="quote-author"><Image src="/src/assets/patrick-malatack.png" width={24} height={24} alt="Patrick Malatack" />PATRICK MALATACK, <span class="muted">FORMER VP PRODUCT @ TWILIO</span></div>
+  <div class="quote-author">
+    <Image
+      src={PatrickMalatack}
+      width={24}
+      height={24}
+      alt="Patrick Malatack"
+    />PATRICK MALATACK, <span class="muted">FORMER VP PRODUCT @ TWILIO</span>
+  </div>
   “At Twillio we would accidentally but regularly DDOS our users webhooks endpoints.”
 </blockquote>
 <h2 class="bold-m">Reimagining event delivery</h2>
@@ -184,7 +193,7 @@ import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
 <style>
   blockquote {
     border: 1px dashed var(--outline-neutral);
-    padding: var(--spacing-6) var(--spacing-4) ;
+    padding: var(--spacing-6) var(--spacing-4);
     margin: 0;
     margin-top: var(--spacing-18);
     margin-bottom: var(--spacing-18);
@@ -206,4 +215,3 @@ import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
     }
   }
 </style>
-
