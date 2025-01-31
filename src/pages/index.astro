@@ -7,7 +7,7 @@ import Initiative from "../components/Initiative.astro";
 import Contact from "../components/Contact.astro";
 import People from "../components/People.astro";
 import OnThisPage from "../components/OnThisPage.astro";
-import Features from "../components/Features.astro";
+import Guidelines from "../components/Guidelines.astro";
 import Head from "../components/Head.astro";
 const title = "Event Destinations Initiative";
 const description =
@@ -37,31 +37,31 @@ const tags = [
         <div class="draft">
           <br />
           <em class="muted" style="color: red"
-            >Note: This version is a draft and should not be distributed.</em
+            >Note: This version is a draft, please do not be distribute.</em
           >
         </div>
         <section id="initiative">
           <Title />
-          <hr />
+          <div class="divider">Manifesto<hr />01</div>
           <Initiative />
         </section>
-        <section id="features">
-          <hr />
-          <Features />
+        <section id="guidelines">
+          <div class="divider">Guidelines<hr />02</div>
+          <Guidelines />
         </section>
         <section id="implementations">
-          <hr />
+          <div class="divider">Implementations<hr />03</div>
           <Implementations />
         </section>
         <section id="people">
+          <div class="divider">People<hr />04</div>
           <People />
         </section>
         <section id="contact">
-          <hr />
+          <div class="divider">Get Involved<hr />05</div>
           <Contact />
         </section>
       </article>
-      <OnThisPage />
     </main>
   </body>
 </html>
@@ -71,13 +71,7 @@ const tags = [
     width: 100%;
     padding: var(--spacing-8);
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
     gap: var(--spacing-8);
-
-    @media (max-width: 744px) {
-      grid-template-columns: 1fr;
-    }
 
     article {
       max-width: 744px;
@@ -86,10 +80,26 @@ const tags = [
     }
 
     @media (max-width: 744px) {
-      padding: 0 var(--spacing-4);
-      aside {
-        display: none;
-      }
+      padding: var(--spacing-6);
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    margin-top: var(--spacing-18);
+    margin-bottom: var(--spacing-18);
+    color: var(--foreground-neutral-3);
+    text-transform: uppercase;
+    font-size: var(--font-size-xs);
+    line-height: var(--font-line-height-xs);
+    letter-spacing: var(--font-letter-spacing-xs);
+    hr {
+      flex: 1;
+      height: 8px;
+      border: none;
+      background: url(/images/hr-bg.svg) 0% 0% / 3px 8px repeat;
     }
   }
 </style>

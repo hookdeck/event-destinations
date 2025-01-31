@@ -165,14 +165,6 @@ p {
   letter-spacing: var(--font-letter-spacing-m);
 }
 
-hr {
-  height: 7px;
-  border: none;
-  background: url(/images/hr-bg-light.svg) 0% 0% / 4px 7px repeat;
-  margin-top: var(--spacing-18);
-  margin-bottom: var(--spacing-18);
-}
-
 .list {
   border: 1px solid var(--outline-neutral);
   padding: var(--spacing-1);

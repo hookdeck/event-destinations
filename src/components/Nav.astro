@@ -1,8 +1,10 @@
 ---
-const pages = {
-  "/": "Initiative",
-  "/specifications": "Specifications",
-  "/producers": "Event Producers",
+const sections = {
+  "#initiative": "Initiative",
+  "#guidelines": "Guidelines",
+  "#implementations": "Implementations",
+  "#people": "People",
+  "#contact": "Contact",
 };
 ---
 
@@ -37,40 +39,138 @@ const pages = {
   </a>
   <ul class="desktop">
     {
-      Object.entries(pages).map(([path, title]) => (
+      Object.entries(sections).map(([anchor, title]) => (
         <li>
-          <a href={path} class={Astro.url.pathname === path ? "active" : ""}>
-            {title}
-          </a>
+          <a href={anchor}>{title}</a>
         </li>
       ))
     }
   </ul>
-  <select class="mobile">
-    {
-      Object.entries(pages).map(([path, title]) => (
-        <option value={path} selected={Astro.url.pathname === path}>
-          {title}
-        </option>
-      ))
-    }
-  </select>
-  <ul class="right">
+  <div class="mobile">
+    <button id="section"
+      >Initiative<svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.0026 12.4997L5.83594 8.33301H14.1693L10.0026 12.4997Z"
+          fill="#7A786E"></path>
+      </svg>
+    </button>
+    <div id="menu">
+      <div class="menu-card">
+        {
+          Object.entries(sections).map(([anchor, title]) => (
+            <a href={anchor}>{title}</a>
+          ))
+        }
+        <a
+          class="separator"
+          href="https://github.com/hookdeck/event-destinations"
+          target="_blank">GitHub ↗</a
+        >
+      </div>
+    </div>
+  </div>
+  <ul class="right desktop">
     <li>
-      <a href="https://github.com/hookdeck/event-destinations">Get Involved ↗</a
+      <a href="https://github.com/hookdeck/event-destinations" target="_blank"
+        >GitHub ↗</a
       >
     </li>
   </ul>
 </header>
 
+<script>
+  // Add menu toggle functionality
+  const sectionButton = document.getElementById("section");
+  const menu = document.getElementById("menu");
+
+  sectionButton?.addEventListener("click", () => {
+    menu?.classList.toggle("open");
+    sectionButton.classList.toggle("active");
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !sectionButton?.contains(e.target as Node) &&
+      !menu?.contains(e.target as Node)
+    ) {
+      menu?.classList.remove("open");
+      sectionButton?.classList.remove("active");
+    }
+  });
+
+  // Add intersection observer for navigation
+  const navLinks = document.querySelectorAll("header ul a");
+  const sections = document.querySelectorAll("section[id]");
+
+  const createObserverCallback =
+    (isLastSection: boolean) => (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove active class from all links
+          navLinks.forEach((link) => link.classList.remove("active"));
+
+          // For the last section, only activate if scrolled near bottom
+          if (isLastSection) {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const nearBottom =
+              document.documentElement.scrollHeight - scrollPosition < 100;
+            if (!nearBottom) return;
+          }
+
+          // Add active class to corresponding nav link
+          const activeId = entry.target.id;
+          const activeLink = document.querySelector(
+            `header ul a[href="#${activeId}"]`
+          );
+          if (activeLink) {
+            activeLink.classList.add("active");
+
+            // Update the section button text to match active link
+            if (sectionButton) {
+              // Extract just the text content, removing the SVG
+              const buttonText = sectionButton.childNodes[0];
+              buttonText.textContent = activeLink.textContent;
+            }
+          }
+        }
+      });
+    };
+
+  const observer = new IntersectionObserver(createObserverCallback(false), {
+    rootMargin: "-10% 0px -60% 0px",
+    threshold: 0,
+  });
+
+  const observerLastEntry = new IntersectionObserver(
+    createObserverCallback(true),
+    {
+      rootMargin: "0px 0px 0px 0px",
+      threshold: 0,
+    }
+  );
+
+  sections.forEach((section, i) =>
+    i === sections.length - 1
+      ? observerLastEntry.observe(section)
+      : observer.observe(section)
+  );
+</script>
+
 <style>
   header {
     position: sticky;
-    top: 0;
+    top: var(--spacing-2);
     left: 0;
     right: 0;
     height: 58px;
-    padding: 0 var(--spacing-8);
+    padding: 0 var(--spacing-10);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -79,9 +179,94 @@ const pages = {
     background-color: var(--background);
     border-bottom: 1px solid var(--outline-neutral);
     z-index: 1000;
+    justify-content: space-between;
+    &:after {
+      content: "";
+      position: fixed;
+      left: var(--spacing-2);
+      right: var(--spacing-2);
+      bottom: var(--spacing-2);
+      top: var(--spacing-2);
+      border: 1px solid var(--outline-neutral);
+      pointer-events: none;
+      box-shadow: 0 0 0 var(--spacing-2) var(--background);
+      z-index: -1;
+    }
 
     .mobile {
       display: none;
+      position: relative;
+
+      #section {
+        all: unset;
+        cursor: pointer;
+        text-transform: uppercase;
+        padding: var(--spacing-2) var(--spacing-4);
+        border-radius: 4px;
+        font-size: var(--font-size-s);
+        line-height: var(--font-line-height-s);
+        letter-spacing: var(--font-letter-spacing-s);
+
+        &:hover {
+          background-color: var(--background-neutral);
+        }
+
+        &.active {
+          background-color: var(--background-neutral);
+        }
+      }
+
+      #menu {
+        display: none;
+        position: fixed;
+
+        &.open {
+          display: block;
+        }
+
+        .menu-card {
+          display: flex;
+          flex-direction: column;
+          z-index: 1000;
+          position: fixed;
+          top: var(--spacing-2);
+          left: var(--spacing-2);
+          right: var(--spacing-2);
+          background-color: var(--background);
+          box-sizing: border-box;
+          border: 1px solid var(--foreground-neutral);
+          a {
+            color: var(--foreground-neutral-3);
+            text-decoration: none;
+            padding: var(--spacing-4);
+            text-align: center;
+
+            &:not(:first-child) {
+              border-top: 1px dashed var(--outline-neutral);
+            }
+
+            &.separator {
+              border-top: 1px solid var(--foreground-neutral);
+            }
+
+            &:hover {
+              background-color: var(--background-neutral);
+            }
+          }
+        }
+
+        &::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.25);
+          z-index: 999;
+          pointer-events: none;
+        }
+      }
     }
 
     select {
@@ -89,11 +274,31 @@ const pages = {
       background-color: transparent;
     }
 
-    @media (max-width: 744px) {
-      padding: 0 var(--spacing-4);
-      gap: var(--spacing-4);
+    @media (max-width: 904px) {
       .mobile {
         display: block;
+
+        #section {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-1);
+        }
+      }
+
+      .desktop {
+        display: none;
+      }
+    }
+
+    @media (max-width: 744px) {
+      padding: 0 var(--spacing-7);
+      gap: var(--spacing-4);
+      display: grid;
+      grid-template-columns: 32px 1fr 32px;
+      .mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .desktop {
@@ -105,16 +310,6 @@ const pages = {
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      right: 0;
-      height: 7px;
-      background: url(/images/hr-bg-light.svg) 0% 0% / 4px 7px repeat;
     }
 
     .right {

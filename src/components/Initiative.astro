@@ -37,7 +37,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
     ].map(({ title, description }) => (
       <li>
         <p>{title}</p>
-        <p class="muted">{description}</p>
+        <p class="muted regular-s">{description}</p>
       </li>
     ))
   }
@@ -51,12 +51,17 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
   <div class="quote-author">
     <Image
       src={PatrickMalatack}
-      width={24}
-      height={24}
+      width={40}
+      height={40}
       alt="Patrick Malatack"
-    />PATRICK MALATACK, <span class="muted">FORMER VP PRODUCT @ TWILIO</span>
+    /><span
+      >PATRICK MALATACK<br /><span class="muted"
+        >FORMER VP PRODUCT @ TWILIO</span
+      ></span
+    >
   </div>
-  "At Twilio we would often see spikes in usage which would lead to us accidentally DoSing our users webhook endpoints"
+  "At Twilio we would often see spikes in usage which would lead to us accidentally
+  DoSing our users webhook endpoints"
 </blockquote>
 <h2 class="bold-m">Reimagining event delivery</h2>
 <p class="muted">
@@ -96,7 +101,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
     ].map(({ title, description }) => (
       <li>
         <p>{title}</p>
-        <p class="muted">{description}</p>
+        <p class="muted regular-s">{description}</p>
       </li>
     ))
   }
@@ -118,7 +123,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
     ].map(({ title, description }) => (
       <li>
         <p>{title}</p>
-        <p class="muted">{description}</p>
+        <p class="muted regular-s">{description}</p>
       </li>
     ))
   }
@@ -160,7 +165,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
     ].map(({ title, description }) => (
       <li>
         <p>{title}</p>
-        <p class="muted">{description}</p>
+        <p class="muted regular-s">{description}</p>
       </li>
     ))
   }
@@ -193,18 +198,19 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
 <style>
   blockquote {
     border: 1px dashed var(--outline-neutral);
-    padding: var(--spacing-6) var(--spacing-4);
+    padding: var(--spacing-8) var(--spacing-4) var(--spacing-6) var(--spacing-4);
     margin: 0;
     margin-top: var(--spacing-18);
     margin-bottom: var(--spacing-18);
     font-style: italic;
     position: relative;
+
     .quote-author {
       display: flex;
       align-items: center;
       gap: var(--spacing-2);
       position: absolute;
-      top: -11px;
+      top: -20px;
       left: var(--spacing-2);
       background-color: var(--background);
       font-size: var(--font-size-s);
