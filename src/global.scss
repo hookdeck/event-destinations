@@ -218,7 +218,7 @@ p {
         margin-right: var(--spacing-3);
         content: "";
         height: 8px;
-        width: 8px;
+        min-width: 8px;
         border-radius: 50%;
         background-color: var(--foreground-danger);
         position: static;
