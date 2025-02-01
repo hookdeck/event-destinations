@@ -234,6 +234,15 @@ p {
   border: 1px solid var(--outline-neutral);
   max-width: 100%;
   box-sizing: border-box;
+
+  @media (max-width: 744px) {
+    width: calc(100% + var(--spacing-8) + 4px);
+    max-width: unset;
+    margin-left: calc(var(--spacing-4) * -1 - 1px);
+    margin-right: calc(var(--spacing-4) * -1 - 1px);
+    padding: 0;
+    border: 0;
+  }
   svg,
   img {
     max-width: 100%;

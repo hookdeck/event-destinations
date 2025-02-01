@@ -180,6 +180,7 @@ const sections = {
     border-bottom: 1px solid var(--outline-neutral);
     z-index: 1000;
     justify-content: space-between;
+
     &:after {
       content: "";
       position: fixed;
@@ -191,7 +192,12 @@ const sections = {
       pointer-events: none;
       box-shadow: 0 0 0 var(--spacing-2) var(--background);
       z-index: -1;
+
+      @media (max-width: 744px) {
+        display: none;
+      }
     }
+
 
     .mobile {
       display: none;
@@ -296,9 +302,10 @@ const sections = {
     }
 
     @media (max-width: 744px) {
-      padding: 0 var(--spacing-7);
+      padding: 0 var(--spacing-4);
       gap: var(--spacing-4);
       display: grid;
+      top: 0;
       grid-template-columns: 32px 1fr 32px;
       .mobile {
         display: flex;
