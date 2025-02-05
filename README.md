@@ -29,7 +29,7 @@ For event producers:
 For event consumers:
 
 - **Streamlined infrastructure and operations**: Eliminate the need for API gateways, load balancers, HTTP consumers, and other infrastructure components, reducing maintenance overhead.
-- **Reduced developer burden**: Receive events directly within existing or preferred infrastructure and make use of existing ecosystem tooling.
+- **Reduced developer burden**: Receive events directly to existing or preferred infrastructure and make use of existing and familiar ecosystem tooling.
 - **Predictable behavior**: Standardize event expectations—the message bus handles timeouts, retries, and security.
 
 ## Event Destinations Specification
