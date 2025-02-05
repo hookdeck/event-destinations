@@ -56,10 +56,19 @@
 
 html {
   background-color: var(--background);
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+}
+
+[id] {
+  scroll-margin-top: 130px;
+
+  @media (max-width: 744px) {
+    scroll-margin-top: 100px;
+  }
 }
 
 /* Typography Classes */
@@ -148,7 +157,7 @@ body {
   color: var(--foreground-neutral-2);
 }
 
-h2 {
+h2, h3 {
   margin-top: var(--spacing-12);
   margin-bottom: var(--spacing-6);
   font-size: var(--font-size-m);

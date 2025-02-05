@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
 import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
 import PatrickMalatack from "../assets/PatrickMalatack.png";
+import Quote from "./Quote.astro";
 ---
 
-<h2 class="bold-m">A decade of webhooks: Progress with limits</h2>
+<h3 class="bold-m">A decade of webhooks: Progress with limits</h3>
 <p class="muted">
   Over the last 10 years, webhooks have become the go-to mechanism for
   delivering events from developer platforms to support other platform
@@ -47,23 +47,15 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
   less capable. How can you combine the reach of webhooks with the capabilities
   of other event paradigms? With Event Destinations.
 </p>
-<blockquote>
-  <div class="quote-author">
-    <Image
-      src={PatrickMalatack}
-      width={40}
-      height={40}
-      alt="Patrick Malatack"
-    /><span
-      >PATRICK MALATACK<br /><span class="muted"
-        >FORMER VP PRODUCT @ TWILIO</span
-      ></span
-    >
-  </div>
-  "At Twilio we would often see spikes in usage which would lead to us accidentally
-  DoSing our users webhook endpoints"
-</blockquote>
-<h2 class="bold-m">Reimagining event delivery</h2>
+<Quote
+  image={PatrickMalatack}
+  name="Patrick Malatack"
+  description="Former VP Product @ Twilio"
+>
+  "At Twilio we would often see spikes in usage which would lead to us
+  accidentally DoSing our users webhook endpoints"
+</Quote>
+<h3 class="bold-m">Reimagining event delivery</h3>
 <p class="muted">
   Best practices today often dictate validating and queuing webhooks via a
   message bus upon receipt. This raises a fundamental question: Why depend on
@@ -73,14 +65,14 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
 <div class="img-wrapper">
   <WebhooksIllustration />
 </div>
-<h2 class="bold-m">The emergence of event destinations</h2>
+<h3 class="bold-m">The emergence of event destinations</h3>
 <p class="muted">
   Pioneers in the industry are shifting away from traditional webhooks toward a
   more versatile model. For example, Stripe’s Event Destinations allow
   developers to select the best destination for their needs—webhooks are just
   one of a few options. This shift brings clear advantages.
 </p>
-<p class="muted"><em class="muted">For publishers:</em></p>
+<p class="muted"><em class="muted">For event producers:</em></p>
 <ul class="list list-success">
   {
     [
@@ -106,7 +98,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
     ))
   }
 </ul>
-<p class="muted"><em class="muted">For consumers:</em></p>
+<p class="muted"><em class="muted">For event consumers:</em></p>
 <ul class="list list-success">
   {
     [
@@ -128,7 +120,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
     ))
   }
 </ul>
-<h2 class="bold-m">Better developer experience for all</h2>
+<h3 class="bold-m">Better developer experience for all</h3>
 <p class="muted">
   At the core of this shift is a commitment to enhancing the developer
   experience. Platforms can improve the developer experience by expanding
@@ -177,7 +169,7 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
   represent the next step in creating a developer experience that empowers
   everyone.
 </p>
-<h2 class="bold-m">The vision</h2>
+<h3 class="bold-m">The vision</h3>
 <p class="muted">
   Webhooks have brought us to where we are today and will undoubtedly remain a
   cornerstone of event interoperability for the foreseeable future. However, as
@@ -194,30 +186,3 @@ import PatrickMalatack from "../assets/PatrickMalatack.png";
   simplifying event-driven architectures, and creating better developer
   experiences for everyone.
 </p>
-
-<style>
-  blockquote {
-    border: 1px dashed var(--outline-neutral);
-    padding: var(--spacing-8) var(--spacing-4) var(--spacing-6) var(--spacing-4);
-    margin: 0;
-    margin-top: var(--spacing-18);
-    margin-bottom: var(--spacing-18);
-    font-style: italic;
-    position: relative;
-
-    .quote-author {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-2);
-      position: absolute;
-      top: -20px;
-      left: var(--spacing-2);
-      background-color: var(--background);
-      font-size: var(--font-size-s);
-      line-height: var(--font-line-height-s);
-      letter-spacing: var(--font-letter-spacing-s);
-      font-style: normal;
-      padding: 0 var(--spacing-2);
-    }
-  }
-</style>

@@ -3,14 +3,15 @@ import "../global.scss";
 import Title from "../components/Title.astro";
 import Nav from "../components/Nav.astro";
 import Implementations from "../components/Implementations.astro";
-import Initiative from "../components/Initiative.astro";
+import Manifesto from "../components/Manifesto.astro";
 import Contact from "../components/Contact.astro";
-import People from "../components/People.astro";
+import Supporters from "../components/Supporters.astro";
 import Guidelines from "../components/Guidelines.astro";
 import Head from "../components/Head.astro";
+
 const title = "Event Destinations Initiative";
 const description =
-  "A model for event interoperability between event producers and their consumersto favor better developer experience, robust integration, and infrastructural efficiency";
+  "A model for event interoperability between event producers and their consumers to favor better developer experience, robust integration, and infrastructural efficiency";
 const tags = [
   "event destinations",
   "send webhooks",
@@ -23,7 +24,6 @@ const tags = [
 <html lang="en">
   <head>
     <Head />
-    <title>{title}</title>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="tags" content={tags.join(",")} />
@@ -41,25 +41,25 @@ const tags = [
             distribute.</em
           >
         </div>
-        <section id="initiative">
+        <section id="manifesto">
           <Title />
-          <div class="divider">Manifesto<hr />01</div>
-          <Initiative />
+          <div class="divider"><h2>Manifesto</h2><hr />01</div>
+          <Manifesto />
         </section>
         <section id="guidelines">
-          <div class="divider">Guidelines<hr />02</div>
+          <div class="divider"><h2>Guidelines</h2><hr />02</div>
           <Guidelines />
         </section>
         <section id="implementations">
-          <div class="divider">Implementations<hr />03</div>
+          <div class="divider"><h2>Implementations</h2><hr />03</div>
           <Implementations />
         </section>
-        <section id="people">
-          <div class="divider">People<hr />04</div>
-          <People />
+        <section id="supporters">
+          <div class="divider"><h2>Supporters</h2><hr />04</div>
+          <Supporters />
         </section>
         <section id="contact">
-          <div class="divider">Get Involved<hr />05</div>
+          <div class="divider"><h2>Get Involved</h2><hr />05</div>
           <Contact />
         </section>
       </article>
@@ -96,6 +96,15 @@ const tags = [
     font-size: var(--font-size-xs);
     line-height: var(--font-line-height-xs);
     letter-spacing: var(--font-letter-spacing-xs);
+    h2 {
+      color: var(--foreground-neutral-3);
+      text-transform: uppercase;
+      font-size: var(--font-size-xs);
+      line-height: var(--font-line-height-xs);
+      letter-spacing: var(--font-letter-spacing-xs);
+      margin: 0;
+      font-weight: normal;
+    }
     hr {
       flex: 1;
       height: 8px;

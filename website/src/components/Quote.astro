@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+
+const { image, name, description } = Astro.props;
+---
+
+<blockquote>
+  <div class="quote-author">
+    <Image src={image} width={40} height={40} alt={name} /><span class="details"
+      >{name}<br /><span class="muted">{description}</span></span
+    >
+  </div>
+  <slot />
+</blockquote>
+
+<style>
+  blockquote {
+    border: 1px dashed var(--outline-neutral);
+    padding: var(--spacing-8) var(--spacing-4) var(--spacing-6) var(--spacing-4);
+    margin: 0;
+    margin-top: var(--spacing-18);
+    margin-bottom: var(--spacing-18);
+    font-style: italic;
+    position: relative;
+
+    .quote-author {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      position: absolute;
+      top: -20px;
+      left: var(--spacing-2);
+      background-color: var(--background);
+      font-size: var(--font-size-s);
+      line-height: var(--font-line-height-s);
+      letter-spacing: var(--font-letter-spacing-s);
+      font-style: normal;
+      padding: 0 var(--spacing-2);
+
+      .details {
+        text-transform: uppercase;
+      }
+    }
+  }
+</style>
