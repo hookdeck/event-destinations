@@ -27,12 +27,10 @@ import AlexBouchard from "../assets/AlexBouchard.png";
       name="Alex Bouchard"
       description="Co-Founder & CEO @ Hookdeck"
     >
-      "At Twilio, we ultimately spent thousands of developer hours building
-      queuing, security, retry logic, and a reverse load balancer to reliably
-      deliver webhooks at scale."
+      "..."
     </Quote>
   </li>
-  <li class="list-item">
+  <!-- <li class="list-item">
     <Quote image={AlexBouchard} name="Lauren" description="Ampersand">
       "At Twilio, we ultimately spent thousands of developer hours building
       queuing, security, retry logic, and a reverse load balancer to reliably
@@ -52,7 +50,7 @@ import AlexBouchard from "../assets/AlexBouchard.png";
       queuing, security, retry logic, and a reverse load balancer to reliably
       deliver webhooks at scale."
     </Quote>
-  </li>
+  </li> -->
 </ul>
 
 <style>
@@ -63,14 +61,15 @@ import AlexBouchard from "../assets/AlexBouchard.png";
     gap: var(--spacing-1);
   }
 
-  .list-item {
+  li.list-item {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-4);
-    border: 1px solid var(--outline-neutral);
-    padding: var(--spacing-4);
+    margin-top: var(--spacing-8);
+    border: 0;
+    padding: var(--spacing-6);
     height: 100%;
     box-sizing: border-box;
     p {

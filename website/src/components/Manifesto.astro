@@ -47,14 +47,16 @@ import Quote from "./Quote.astro";
   less capable. How can you combine the reach of webhooks with the capabilities
   of other event paradigms? With Event Destinations.
 </p>
-<Quote
-  image={PatrickMalatack}
-  name="Patrick Malatack"
-  description="Former VP Product @ Twilio"
->
-  "At Twilio we would often see spikes in usage which would lead to us
-  accidentally DoSing our users webhook endpoints"
-</Quote>
+<div class="quote-wrapper">
+  <Quote
+    image={PatrickMalatack}
+    name="Patrick Malatack"
+    description="Former VP Product @ Twilio"
+  >
+    "At Twilio we would often see spikes in usage which would lead to us
+    accidentally DoSing our users webhook endpoints"
+  </Quote>
+</div>
 <h3 class="bold-m">Reimagining event delivery</h3>
 <p class="muted">
   Best practices today often dictate validating and queuing webhooks via a
@@ -186,3 +188,10 @@ import Quote from "./Quote.astro";
   simplifying event-driven architectures, and creating better developer
   experiences for everyone.
 </p>
+
+<style>
+  .quote-wrapper {
+    margin-top: var(--spacing-18);
+    margin-bottom: var(--spacing-18);
+  }
+</style>
