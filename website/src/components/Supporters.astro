@@ -9,7 +9,30 @@ import AlexBouchard from "../assets/AlexBouchard.png";
 
 <em style="color: red">Note: More supporters to be added for public release</em>
 
-<ul class="list">
+<div class="quote-wrapper">
+  <Quote
+    image={AlexBouchard}
+    name="Alex Bouchard"
+    description="Co-Founder & CEO @ Hookdeck"
+  >
+    "Delivering webhooks at scale is hard. Event Destinations represents a
+    required evolution of event delivery, helping event producers scale more
+    efficiently and providing a much improved developer experience for event
+    consumers."
+  </Quote>
+
+  <Quote
+    image={PatrickMalatack}
+    name="Patrick Malatack"
+    description="Former VP Product @ Twilio"
+  >
+    "At Twilio, we ultimately spent thousands of developer hours building
+    queuing, security, retry logic, and a reverse load balancer to reliably
+    deliver webhooks at scale."
+  </Quote>
+</div>
+
+<!-- <ul class="list">
   <li class="list-item">
     <Quote
       image={PatrickMalatack}
@@ -27,10 +50,13 @@ import AlexBouchard from "../assets/AlexBouchard.png";
       name="Alex Bouchard"
       description="Co-Founder & CEO @ Hookdeck"
     >
-      "..."
+      "Delivering webhooks at scale is hard. Event Destinations represents a
+      required evolution of event delivery, helping event producers scale more
+      efficiently and providing a much improved developer experience for event
+      consumers."
     </Quote>
   </li>
-  <!-- <li class="list-item">
+  <li class="list-item">
     <Quote image={AlexBouchard} name="Lauren" description="Ampersand">
       "At Twilio, we ultimately spent thousands of developer hours building
       queuing, security, retry logic, and a reverse load balancer to reliably
@@ -50,10 +76,24 @@ import AlexBouchard from "../assets/AlexBouchard.png";
       queuing, security, retry logic, and a reverse load balancer to reliably
       deliver webhooks at scale."
     </Quote>
-  </li> -->
-</ul>
+  </li>
+</ul> -->
 
 <style>
+  .quote-wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-8);
+    padding: var(--spacing-8) 0;
+
+    > * {
+      margin-top: var(--spacing-4);
+    }
+  }
+
   .list {
     display: grid;
     grid-template-columns: 1fr 1fr;
