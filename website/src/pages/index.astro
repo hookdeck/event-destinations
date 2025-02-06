@@ -8,6 +8,7 @@ import Contact from "../components/Contact.astro";
 import Supporters from "../components/Supporters.astro";
 import Guidelines from "../components/Guidelines.astro";
 import Head from "../components/Head.astro";
+import PostHogScript from "../components/PostHogScript.astro";
 
 const title = "Event Destinations Initiative";
 const description =
@@ -27,6 +28,7 @@ const tags = [
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="tags" content={tags.join(",")} />
+    <PostHogScript />
   </head>
   <body>
     <Nav />

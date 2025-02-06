@@ -44,8 +44,8 @@ import Quote from "./Quote.astro";
 </ul>
 <p class="muted">
   Webhooks are the least common denominator. They offer amazing reach but are
-  less capable. How can you combine the reach of webhooks with the capabilities
-  of other event paradigms? With Event Destinations.
+  lack capabilities at scale. How can you combine the reach of webhooks with the
+  capabilities of other event paradigms? With Event Destinations.
 </p>
 <div class="quote-wrapper">
   <Quote
@@ -53,8 +53,8 @@ import Quote from "./Quote.astro";
     name="Patrick Malatack"
     description="Former VP Product @ Twilio"
   >
-    "At Twilio we would often see spikes in usage which would lead to us
-    accidentally DoSing our users webhook endpoints"
+    "At Twilio, we would often see spikes in usage, which would lead to us
+    accidentally DoSing our user's webhook endpoints."
   </Quote>
 </div>
 <h3 class="bold-m">Reimagining event delivery</h3>
@@ -70,9 +70,9 @@ import Quote from "./Quote.astro";
 <h3 class="bold-m">The emergence of event destinations</h3>
 <p class="muted">
   Pioneers in the industry are shifting away from traditional webhooks toward a
-  more versatile model. For example, Stripe’s Event Destinations allow
-  developers to select the best destination for their needs—webhooks are just
-  one of a few options. This shift brings clear advantages.
+  more versatile model. For example, Stripe's Event Destinations allow
+  developers to select the best destination for their needs - webhooks are just
+  one of the options. This shift brings clear advantages.
 </p>
 <p class="muted"><em class="muted">For event producers:</em></p>
 <ul class="list list-success">
@@ -81,16 +81,16 @@ import Quote from "./Quote.astro";
       {
         title: "Efficiency gains",
         description:
-          "Reduced failure rates and retried deliveries compared to public HTTP endpoints.",
+          "Reduced failure rates and retried deliveries compared to public HTTP endpoints. Unlock improved performance for high-throughput scenarios.",
       },
       {
         title: "Protocol flexibility",
-        description: "Leverage more efficient protocols and encodings.",
+        description: "Leverage more performant protocols and encodings.",
       },
       {
-        title: "Batch publishing",
+        title: "Cost & resource efficient",
         description:
-          "Unlock improved performance for high-throughput scenarios.",
+          "Smart retry logic, improved deliverability and scalable infrastructure minimize resource consumption, reducing operational costs while ensuring seamless event delivery at any scale.",
       },
     ].map(({ title, description }) => (
       <li>
@@ -110,6 +110,11 @@ import Quote from "./Quote.astro";
           "Eliminate the need for API gateways, load balancers, HTTP consumers, and other infrastructure components, reducing maintenance overhead.",
       },
       {
+        title: "Reduced developer burden",
+        description:
+          "Receive events directly to existing or preferred infrastructure and make use of existing and familiar ecosystem tooling.",
+      },
+      {
         title: "Predictable behavior",
         description:
           "Standardize event expectations—the message bus handles timeouts, retries, and security.",
@@ -125,15 +130,15 @@ import Quote from "./Quote.astro";
 <h3 class="bold-m">Better developer experience for all</h3>
 <p class="muted">
   At the core of this shift is a commitment to enhancing the developer
-  experience. Platforms can improve the developer experience by expanding
-  platform event delivery options and capabilities, moving beyond only offering
-  traditional webhooks by supporting Event Destinations such as AWS SQS, GCP
-  PubSub, Hookdeck, RabbitMQ, and Kafka, to name a few.
+  experience. Platforms can improve the developer experience by expanding event
+  delivery options and capabilities, moving beyond only offering traditional
+  webhooks by supporting Event Destinations such as AWS SQS, GCP PubSub,
+  Hookdeck, RabbitMQ, and Kafka, to name a few.
 </p>
 <p class="muted">
   This DX evolution helps everyone; developers gain tools that are more powerful
-  and simpler to use and maintain. Developers are, therefore, more successful
-  and faster at adopting developer platforms.
+  and simpler to use and maintain. Developers are more successful and faster at
+  adopting developer platforms.
 </p>
 <p class="muted">
   <em class="muted">In particular:</em>
@@ -165,7 +170,7 @@ import Quote from "./Quote.astro";
   }
 </ul>
 <p class="muted">
-  This evolution isn’t just about solving pain points – it’s about unlocking new
+  This evolution isn't just about solving pain points - it's about unlocking new
   possibilities for developers building event-driven applications. By
   prioritizing interoperability, security, and efficiency, Event Destinations
   represent the next step in creating a developer experience that empowers
