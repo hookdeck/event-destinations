@@ -1,0 +1,120 @@
+---
+import Quote from "./Quote.astro";
+
+import PatrickMalatack from "../assets/PatrickMalatack.png";
+import AlexBouchard from "../assets/AlexBouchard.png";
+---
+
+<h2>With the support of</h2>
+
+<em style="color: red">Note: More supporters to be added for public release</em>
+
+<div class="quote-wrapper">
+  <Quote
+    image={AlexBouchard}
+    name="Alex Bouchard"
+    description="Co-Founder & CEO @ Hookdeck"
+  >
+    "Delivering webhooks at scale is hard. Event Destinations represents a
+    required evolution of event delivery, helping event producers scale more
+    efficiently and providing a much improved developer experience for event
+    consumers."
+  </Quote>
+
+  <Quote
+    image={PatrickMalatack}
+    name="Patrick Malatack"
+    description="Former VP Product @ Twilio"
+  >
+    "At Twilio, we ultimately spent thousands of developer hours building
+    queuing, security, retry logic, and a reverse load balancer to reliably
+    deliver webhooks at scale."
+  </Quote>
+</div>
+
+<!-- <ul class="list">
+  <li class="list-item">
+    <Quote
+      image={PatrickMalatack}
+      name="Patrick Malatack"
+      description="Former VP Product @ Twilio"
+    >
+      "At Twilio, we ultimately spent thousands of developer hours building
+      queuing, security, retry logic, and a reverse load balancer to reliably
+      deliver webhooks at scale."
+    </Quote>
+  </li>
+  <li class="list-item">
+    <Quote
+      image={AlexBouchard}
+      name="Alex Bouchard"
+      description="Co-Founder & CEO @ Hookdeck"
+    >
+      "Delivering webhooks at scale is hard. Event Destinations represents a
+      required evolution of event delivery, helping event producers scale more
+      efficiently and providing a much improved developer experience for event
+      consumers."
+    </Quote>
+  </li>
+  <li class="list-item">
+    <Quote image={AlexBouchard} name="Lauren" description="Ampersand">
+      "At Twilio, we ultimately spent thousands of developer hours building
+      queuing, security, retry logic, and a reverse load balancer to reliably
+      deliver webhooks at scale."
+    </Quote>
+  </li>
+  <li class="list-item">
+    <Quote image={AlexBouchard} name="Vlad" description="Attentive">
+      "At Twilio, we ultimately spent thousands of developer hours building
+      queuing, security, retry logic, and a reverse load balancer to reliably
+      deliver webhooks at scale."
+    </Quote>
+  </li>
+  <li class="list-item">
+    <Quote image={AlexBouchard} name="Alex P" description="Gorgias">
+      "At Twilio, we ultimately spent thousands of developer hours building
+      queuing, security, retry logic, and a reverse load balancer to reliably
+      deliver webhooks at scale."
+    </Quote>
+  </li>
+</ul> -->
+
+<style>
+  .quote-wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-8);
+    padding: var(--spacing-8) 0;
+
+    > * {
+      margin-top: var(--spacing-4);
+    }
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--spacing-1);
+  }
+
+  li.list-item {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-8);
+    border: 0;
+    padding: var(--spacing-6);
+    height: 100%;
+    box-sizing: border-box;
+    p {
+      margin: 0;
+      text-align: center;
+    }
+  }
+</style>
