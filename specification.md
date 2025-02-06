@@ -4,7 +4,7 @@ Status: <span style="color:red;font-weight:bolder;">DRAFT</span>
 
 ## 1. Introduction
 
-This document outlines the specification for implementing event destinations. This specification aims to provide a comprehensive guide for developers to implement event destinations that meet industry standards and best practices. By following this specification, developers can ensure that their event destinations implementations are robust, flexible, and capable of handling diverse event delivery scenarios.
+This specification document outlines a set of guidelines for developers implementing event destinations. By following this specification, developers can ensure that their event destinations implementations are robust, flexible, and capable of handling diverse event delivery scenarios.
 
 ## 2. What are Event Destinations
 
@@ -24,8 +24,8 @@ Event Destinations are endpoints or systems to which event producers can send ev
 
 The goals of this specification are:
 
-1. Define standard guidelines for implementing event destinations that ensures reliability, efficiency, and flexibility.
-2. Provide clear guidelines for required and recommended features to support various event delivery scenarios.
+1. Define guidelines for implementing event destinations that ensures reliability, efficiency, and flexibility.
+2. Provide clarity regarding the guidelines that are **required** and **recommended** to support various event delivery scenarios.
 3. Ensure compatibility with popular event destinations and integration patterns.
 4. Promote best practices for event delivery, including retries, failure handling, and delivery guarantees.
 
@@ -167,6 +167,26 @@ Key aspects of this feature include:
 - **API support**: Ensure that filtering rules can also be managed via APIs, enabling automation and integration with other systems or workflows.
 - **Performance considerations**: Implement efficient filtering mechanisms to ensure that the filtering process does not negatively impact the performance of event delivery.
 - **Logging and monitoring**: Provide logging and monitoring capabilities to track the application of filtering rules, including which events were filtered out and which were delivered. This information can help developers understand the impact of their filtering rules and diagnose any issues.
+
+**Examples:**
+
+In Shopify, a filter is applied using the following syntax when performing the subscription:
+
+```
+filter = "variants.price:>=10.00"
+```
+
+In Hookdeck, a filter rule is applied to a payload in transit:
+
+```json
+{
+	"variants": {
+		"price": {
+			"$gte": 10
+		}
+	}
+}
+```
 
 By supporting filtering based on payload content, the event destination implementation can offer greater control and customization for event delivery, allowing developers to ensure that only relevant events are sent to their destinations.
 
