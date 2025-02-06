@@ -3,6 +3,7 @@ import Quote from "./Quote.astro";
 
 import PatrickMalatack from "../assets/PatrickMalatack.png";
 import AlexBouchard from "../assets/AlexBouchard.png";
+import PaulAsjes from "../assets/PaulAsjes.jpeg";
 ---
 
 <h2>With the support of</h2>
@@ -10,6 +11,17 @@ import AlexBouchard from "../assets/AlexBouchard.png";
 <em style="color: red">Note: More supporters to be added for public release</em>
 
 <div class="quote-wrapper">
+  <Quote
+    image={PaulAsjes}
+    name="Paul Asjes"
+    description="Developer Experience Engineer @ ElevenLabs"
+  >
+    "I've been working with (and often against) webhooks for years, both as a
+    consumer and an implementer, always wishing that we as an industry could
+    come up with something better. In my opinion, Event Destinations are exactly
+    that."
+  </Quote>
+
   <Quote
     image={AlexBouchard}
     name="Alex Bouchard"
