@@ -46,6 +46,12 @@ We use GitHub Discussions for:
 - [New ideas](https://github.com/hookdeck/eventdestinations/discussions/new?category=ideas)
 - [Q&A](https://github.com/hookdeck/eventdestinations/discussions/new?category=q-a)
 
+## Related Initiatives
+
+- [Async API](https://www.asyncapi.com)
+- [CloudEvents](https://cloudevents.io/)
+- [Webhook standardization projects](https://webhooks.fyi/learn-more/standards)
+
 ## Learn More
 
 Visit the [Event Destinations Initiative website](https://eventdestinations.org) to learn more.
