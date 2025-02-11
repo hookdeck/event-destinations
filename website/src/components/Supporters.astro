@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import Quote from "./Quote.astro";
 
 import PatrickMalatack from "../assets/PatrickMalatack.png";
@@ -6,112 +8,94 @@ import AlexBouchard from "../assets/AlexBouchard.png";
 import PaulAsjes from "../assets/PaulAsjes.png";
 import DavidBoyne from "../assets/DavidBoyne.png";
 import SagarBatchu from "../assets/SagarBatchu.png";
+import LaurenLong from "../assets/LaurenLong.png";
+import VladPick from "../assets/VladPick.png";
+import AlexPlugaru from "../assets/AlexPlugaru.png";
+
+const fullQuoteSupporters = [
+  {
+    name: "Paul Asjes",
+    description: "Developer Experience Engineer @ ElevenLabs",
+    quote:
+      "I've been working with (and often against) webhooks for years, both as a consumer and an implementer, always wishing that we as an industry could come up with something better. In my opinion, Event Destinations are exactly that.",
+    image: PaulAsjes,
+  },
+  {
+    name: "Sagar Batchu",
+    description: "Co-Founder and CEO @ Speakeasy",
+    quote:
+      "Webhooks are a great idea, suffering from a bad implementation. Event Destinations is an incredible project to move the industry forward with a consumer experience that works for developers, rather than against them.",
+    image: SagarBatchu,
+  },
+  {
+    name: "David Boyne",
+    description: "Founder @ EventCatalog",
+    quote:
+      "For years, I've been thinking about the evolution of webhooks. Why create them, verify them, manage and scale them? Why can't companies directly send information into brokers? We can simplify the whole thing, and event destinations may be the next step forward. EDA is becoming more accessible for everyone, so why not make handling real-time events easier, too?",
+    image: DavidBoyne,
+  },
+  {
+    name: "Alex Bouchard",
+    description: "Co-Founder & CEO @ Hookdeck",
+    quote:
+      "Delivering webhooks at scale is hard. Event Destinations represents a required evolution of event delivery, helping event producers scale more efficiently and providing a much improved developer experience for event consumers.",
+    image: AlexBouchard,
+  },
+  {
+    name: "Patrick Malatack",
+    description: "Former VP Product @ Twilio",
+    quote:
+      "At Twilio, we ultimately spent thousands of developer hours building queuing, security, retry logic, and a reverse load balancer to reliably deliver webhooks at scale.",
+    image: PatrickMalatack,
+  },
+];
+
+const avatarOnlySupporters = [
+  {
+    name: "Lauren Long",
+    description: "Co-Founder @ Ampersand",
+    image: LaurenLong,
+  },
+  {
+    name: "Vlad Pick",
+    description: "Engineering Manager @ Attentive",
+    image: VladPick,
+  },
+  {
+    name: "Alex Plugaru",
+    description: "Co-founder & CTO @ Gorgias",
+    image: AlexPlugaru,
+  },
+];
 ---
 
 <h3>With the support of</h3>
 
 <div class="quote-wrapper">
-  <Quote
-    image={PaulAsjes}
-    name="Paul Asjes"
-    description="Developer Experience Engineer @ ElevenLabs"
-  >
-    "I've been working with (and often against) webhooks for years, both as a
-    consumer and an implementer, always wishing that we as an industry could
-    come up with something better. In my opinion, Event Destinations are exactly
-    that."
-  </Quote>
-
-  <Quote
-    image={SagarBatchu}
-    name="Sagar Batchu"
-    description="Co-Founder and CEO @ Speakeasy"
-  >
-    "Webhooks are a great idea, suffering from a bad implementation. Event
-    Destinations is an incredible project to move the industry forward with a
-    consumer experience that works for developers, rather than against them."
-  </Quote>
-
-  <Quote
-    image={DavidBoyne}
-    name="David Boyne"
-    description="Founder @ EventCatalog"
-  >
-    "For years, I've been thinking about the evolution of webhooks. Why create
-    them, verify them, manage and scale them? Why can't companies directly send
-    information into brokers? We can simplify the whole thing, and event
-    destinations may be the next step forward. EDA is becoming more accessible
-    for everyone, so why not make handling real-time events easier, too?"
-  </Quote>
-
-  <Quote
-    image={AlexBouchard}
-    name="Alex Bouchard"
-    description="Co-Founder & CEO @ Hookdeck"
-  >
-    "Delivering webhooks at scale is hard. Event Destinations represents a
-    required evolution of event delivery, helping event producers scale more
-    efficiently and providing a much improved developer experience for event
-    consumers."
-  </Quote>
-
-  <Quote
-    image={PatrickMalatack}
-    name="Patrick Malatack"
-    description="Former VP Product @ Twilio"
-  >
-    "At Twilio, we ultimately spent thousands of developer hours building
-    queuing, security, retry logic, and a reverse load balancer to reliably
-    deliver webhooks at scale."
-  </Quote>
+  {
+    fullQuoteSupporters.map(({ name, description, quote, image }) => (
+      <Quote image={image} name={name} description={description}>
+        "{quote}"
+      </Quote>
+    ))
+  }
 </div>
 
-<!-- <ul class="list">
-  <li class="list-item">
-    <Quote
-      image={PatrickMalatack}
-      name="Patrick Malatack"
-      description="Former VP Product @ Twilio"
-    >
-      "At Twilio, we ultimately spent thousands of developer hours building
-      queuing, security, retry logic, and a reverse load balancer to reliably
-      deliver webhooks at scale."
-    </Quote>
-  </li>
-  <li class="list-item">
-    <Quote
-      image={AlexBouchard}
-      name="Alex Bouchard"
-      description="Co-Founder & CEO @ Hookdeck"
-    >
-      "Delivering webhooks at scale is hard. Event Destinations represents a
-      required evolution of event delivery, helping event producers scale more
-      efficiently and providing a much improved developer experience for event
-      consumers."
-    </Quote>
-  </li>
-  <li class="list-item">
-    <Quote image={AlexBouchard} name="Lauren" description="Ampersand">
-      "At Twilio, we ultimately spent thousands of developer hours building
-      queuing, security, retry logic, and a reverse load balancer to reliably
-      deliver webhooks at scale."
-    </Quote>
-  </li>
-  <li class="list-item">
-    <Quote image={AlexBouchard} name="Vlad" description="Attentive">
-      "At Twilio, we ultimately spent thousands of developer hours building
-      queuing, security, retry logic, and a reverse load balancer to reliably
-      deliver webhooks at scale."
-    </Quote>
-  </li>
-  <li class="list-item">
-    <Quote image={AlexBouchard} name="Alex P" description="Gorgias">
-      "At Twilio, we ultimately spent thousands of developer hours building
-      queuing, security, retry logic, and a reverse load balancer to reliably
-      deliver webhooks at scale."
-    </Quote>
-  </li>
-</ul> -->
+<ul class="supporters-list">
+  {
+    avatarOnlySupporters.map(({ name, description, image }) => (
+      <li class="list-item">
+        <div class="avatar-wrapper">
+          <Image src={image} alt={name} width={40} height={40} />
+        </div>
+        <div>
+          <p class="regular-s">{name}</p>
+          <p class="regular-s role">{description}</p>
+        </div>
+      </li>
+    ))
+  }
+</ul>
 
 <style>
   .quote-wrapper {
@@ -127,7 +111,13 @@ import SagarBatchu from "../assets/SagarBatchu.png";
     }
   }
 
-  .list {
+  .supporters-list {
+    border: 1px solid var(--outline-neutral);
+    padding: var(--spacing-1);
+    list-style: none;
+    margin-bottom: var(--spacing-6);
+    margin-top: var(--spacing-12);
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -140,14 +130,35 @@ import SagarBatchu from "../assets/SagarBatchu.png";
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-4);
-    margin-top: var(--spacing-8);
-    border: 0;
-    padding: var(--spacing-6);
+    border: 1px solid var(--outline-neutral);
+    padding: var(--spacing-5);
     height: 100%;
     box-sizing: border-box;
+    .avatar-wrapper {
+      border: 2px solid rgba(0, 68, 204, 0.5);
+      border-style: inset;
+      width: 40px;
+      height: 40px;
+      img {
+        filter: grayscale(100%);
+      }
+    }
     p {
-      margin: 0;
+      color: var(--foreground-neutral-fg-neutral-1, #141412);
       text-align: center;
+      text-transform: uppercase;
+      margin: 0;
+
+      &.role {
+        color: var(--foreground-neutral-fg-neutral-3, #7a786e);
+      }
     }
   }
+
+  /* display: flex;
+width: 744px;
+padding: 4px;
+flex-direction: column;
+align-items: flex-start;
+gap: 4px;*/
 </style>
