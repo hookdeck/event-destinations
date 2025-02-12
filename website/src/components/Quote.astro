@@ -1,14 +1,19 @@
 ---
-import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Avatar from "./Avatar.astro";
+// import { Image } from "astro:assets";
 
-const { image, name, description } = Astro.props;
+const { image, name, description } = Astro.props as {
+  image: ImageMetadata;
+  name: string;
+  description: string;
+};
 ---
 
 <blockquote>
   <div class="quote-author">
-    <span class="avatar-wrapper">
-      <Image class="avatar" src={image} width={40} height={40} alt={name} />
-    </span><span class="details"
+    <Avatar image={image} />
+    <span class="details"
       >{name}<br /><span class="muted">{description}</span></span
     >
   </div>
@@ -18,7 +23,7 @@ const { image, name, description } = Astro.props;
 <style>
   blockquote {
     border: 1px dashed var(--outline-neutral);
-    padding: var(--spacing-8) var(--spacing-4) var(--spacing-6) var(--spacing-4);
+    padding: var(--spacing-9) var(--spacing-4) var(--spacing-6) var(--spacing-4);
     margin: 0;
     height: 100%;
     font-size: var(--font-size-m);
@@ -26,7 +31,7 @@ const { image, name, description } = Astro.props;
     position: relative;
 
     .quote-author {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: var(--spacing-2);
       position: absolute;
@@ -39,17 +44,6 @@ const { image, name, description } = Astro.props;
       letter-spacing: var(--font-letter-spacing-s);
       font-style: normal;
       padding: 0 var(--spacing-2);
-
-      .avatar-wrapper {
-        border: 2px solid rgba(0, 68, 204, 0.5);
-        border-style: inset;
-        width: 40px;
-        height: 40px;
-
-        .avatar {
-          filter: grayscale(100%);
-        }
-      }
 
       .details {
         text-transform: uppercase;

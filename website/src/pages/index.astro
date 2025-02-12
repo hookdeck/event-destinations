@@ -2,12 +2,12 @@
 import "../global.scss";
 import Title from "../components/Title.astro";
 import Nav from "../components/Nav.astro";
+import Head from "../components/Head.astro";
 import Implementations from "../components/Implementations.astro";
 import Manifesto from "../components/Manifesto.astro";
-import Contact from "../components/Contact.astro";
 import Supporters from "../components/Supporters.astro";
 import Guidelines from "../components/Guidelines.astro";
-import Head from "../components/Head.astro";
+import Contribute from "../components/Contribute.astro";
 import PostHogScript from "../components/PostHogScript.astro";
 
 const title = "Event Destinations Initiative";
@@ -60,9 +60,9 @@ const tags = [
           <div class="divider"><h2>Supporters</h2><hr />04</div>
           <Supporters />
         </section>
-        <section id="contact">
-          <div class="divider"><h2>Get Involved</h2><hr />05</div>
-          <Contact />
+        <section id="contribute">
+          <div class="divider"><h2>Contribute</h2><hr />05</div>
+          <Contribute />
         </section>
       </article>
     </main>
