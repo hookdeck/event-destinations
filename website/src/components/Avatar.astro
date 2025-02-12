@@ -1,0 +1,47 @@
+---
+import type { ImageMetadata } from "astro";
+
+const { image } = Astro.props as {
+  image: ImageMetadata;
+  name: string;
+  description: string;
+};
+---
+
+<div class="avatar-wrapper">
+  <span class="avatar-border"></span>
+  <span
+    class="avatar"
+    style={{
+      backgroundImage: `url(${image.src})`,
+    }}></span>
+</div>
+
+<style>
+  .avatar-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+
+    .avatar-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: 2px solid rgba(0, 68, 204, 0.5);
+      z-index: 1;
+    }
+
+    .avatar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: lightgray 50% / cover no-repeat;
+      mix-blend-mode: luminosity;
+      width: 100%;
+      height: 100%;
+    }
+  }
+</style>

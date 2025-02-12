@@ -11,6 +11,7 @@ import SagarBatchu from "../assets/SagarBatchu.png";
 import LaurenLong from "../assets/LaurenLong.png";
 import VladPick from "../assets/VladPick.png";
 import AlexPlugaru from "../assets/AlexPlugaru.png";
+import Avatar from "./Avatar.astro";
 
 const fullQuoteSupporters = [
   {
@@ -85,9 +86,7 @@ const avatarOnlySupporters = [
   {
     avatarOnlySupporters.map(({ name, description, image }) => (
       <li class="list-item">
-        <div class="avatar-wrapper">
-          <Image src={image} alt={name} width={40} height={40} />
-        </div>
+        <Avatar image={image} />
         <div>
           <p class="regular-s">{name}</p>
           <p class="regular-s role">{description}</p>
@@ -134,15 +133,7 @@ const avatarOnlySupporters = [
     padding: var(--spacing-5);
     height: 100%;
     box-sizing: border-box;
-    .avatar-wrapper {
-      border: 2px solid rgba(0, 68, 204, 0.5);
-      border-style: inset;
-      width: 40px;
-      height: 40px;
-      img {
-        filter: grayscale(100%);
-      }
-    }
+
     p {
       color: var(--foreground-neutral-fg-neutral-1, #141412);
       text-align: center;
