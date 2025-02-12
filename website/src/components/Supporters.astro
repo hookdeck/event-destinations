@@ -80,7 +80,7 @@ const avatarOnlySupporters = [
 ];
 ---
 
-<h3>With the support of</h3>
+<h3>What devtools builders are saying</h3>
 
 <div class="quote-wrapper">
   {
@@ -91,6 +91,8 @@ const avatarOnlySupporters = [
     ))
   }
 </div>
+
+<h3>With the support of</h3>
 
 <ul class="supporters-list">
   {
@@ -107,13 +109,17 @@ const avatarOnlySupporters = [
 </ul>
 
 <style>
+  h3 {
+    margin-top: var(--spacing-18);
+    margin-bottom: var(--spacing-6);
+  }
+
   .quote-wrapper {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-12);
-    margin-top: 0;
 
     > * {
       margin-top: var(--spacing-4);
@@ -125,7 +131,6 @@ const avatarOnlySupporters = [
     padding: var(--spacing-1);
     list-style: none;
     margin-bottom: var(--spacing-6);
-    margin-top: var(--spacing-12);
 
     display: grid;
     grid-template-columns: 1fr 1fr;
