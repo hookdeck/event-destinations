@@ -149,9 +149,12 @@ const avatarOnlySupporters = [
     margin-bottom: var(--spacing-6);
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: var(--spacing-1);
+    grid-template-columns: 1fr 1fr;
+    @media (max-width: 744px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   li.list-item {
