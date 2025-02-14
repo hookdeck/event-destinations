@@ -4,6 +4,7 @@ import Avatar from "./Avatar.astro";
 
 import PatrickMalatack from "../assets/PatrickMalatack.png";
 import AlexBouchard from "../assets/AlexBouchard.png";
+import FranMendez from "../assets/FranMendez.png";
 import PaulAsjes from "../assets/PaulAsjes.png";
 import DavidBoyne from "../assets/DavidBoyne.png";
 import SagarBatchu from "../assets/SagarBatchu.png";
@@ -14,6 +15,13 @@ import AlexPlugaru from "../assets/AlexPlugaru.png";
 import MauriceKherlakian from "../assets/MauriceKherlakian.png";
 
 const fullQuoteSupporters = [
+  {
+    name: "Fran Méndez",
+    description: "Founder @ AsyncAPI Initiative",
+    quote: `In his book Flow Architectures, James Urquhart envisions a future where APIs are inherently asynchronous, with synchronous APIs being reserved only for scenarios where they are truly necessary. <br /><br />The Event Destinations Initiative represents a significant step toward realizing that vision. Enabling API producers to adopt the most efficient and performant methods for sending and receiving asynchronous, non-blocking data is a development I wholeheartedly support—particularly when it is driven by a collaborative and open effort.
+      <br /><br />This direction strongly aligns with the vision we champion at AsyncAPI, and the synergy between these efforts is both promising and exciting. I am eager to see the Event Destinations Initiative succeed and contribute to the evolution and blending of API and EDA ecosystems.`,
+    image: FranMendez,
+  },
   {
     name: "Paul Asjes",
     description: "Developer Experience Engineer @ ElevenLabs",
@@ -72,6 +80,11 @@ const avatarOnlySupporters = [
   //   description: "DX and DevRel @ Hookdeck",
   //   image: PhilLeggetter,
   // },
+  // {
+  //   name: "Patrick Malatack",
+  //   description: "Former VP Product @ Twilio",
+  //   image: PatrickMalatack,
+  // },
   {
     name: "Maurice Kherlakian",
     description: "Co-Founder and CTO @ Hookdeck",
@@ -85,9 +98,12 @@ const avatarOnlySupporters = [
 <div class="quote-wrapper">
   {
     fullQuoteSupporters.map(({ name, description, quote, image }) => (
-      <Quote image={image} name={name} description={description}>
-        "{quote}"
-      </Quote>
+      <Quote
+        image={image}
+        name={name}
+        description={description}
+        set:html={`"${quote}"`}
+      />
     ))
   }
 </div>
