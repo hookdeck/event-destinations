@@ -2,7 +2,7 @@
 
 An initiative to support a new model for event interoperability between event producers and their consumers to favor better developer experience, robust integration, and infrastructural efficiency.
 
-![Event Destinations](website/public/images/og.png)
+![Event Destinations](website/public/images/event-destinations-og.png)
 
 ## What are Event Destinations
 

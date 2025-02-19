@@ -1,3 +1,18 @@
+---
+import PostHogScript from "./PostHogScript.astro";
+
+const { title, description, tags } = Astro.props as {
+  title: string;
+  description: string;
+  tags: string[];
+};
+
+const baseUrl =
+  import.meta.env.MODE === "development"
+    ? Astro.url.origin
+    : "https://eventdestinations.org";
+---
+
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
 <meta name="viewport" content="width=device-width" />
@@ -8,4 +23,17 @@
   href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400,500,700&display=swap"
   rel="stylesheet"
 />
-<meta property="og:image" content="/images/og.png" />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="tags" content={tags.join(",")} />
+<meta property="og:url" content={Astro.url.href} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta
+  property="og:image"
+  content={`${baseUrl}/images/event-destinations-og.png`}
+/>
+
+<PostHogScript />

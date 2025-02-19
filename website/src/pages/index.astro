@@ -8,7 +8,6 @@ import Manifesto from "../components/Manifesto.astro";
 import Supporters from "../components/Supporters.astro";
 import Guidelines from "../components/Guidelines.astro";
 import Contribute from "../components/Contribute.astro";
-import PostHogScript from "../components/PostHogScript.astro";
 
 const title = "Event Destinations Initiative";
 const description =
@@ -24,24 +23,12 @@ const tags = [
 
 <html lang="en">
   <head>
-    <Head />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="tags" content={tags.join(",")} />
-    <PostHogScript />
+    <Head title={title} description={description} tags={tags} />
   </head>
   <body>
     <Nav />
     <main>
-      <div></div>
       <article>
-        <div class="draft">
-          <br />
-          <em class="muted" style="color: red"
-            >Note: This version is a draft. Some links will 404 untils repo's
-            are made public. Please do not be distribute.</em
-          >
-        </div>
         <section id="manifesto">
           <Title />
           <div class="divider"><h2>Manifesto</h2><hr />01</div>
