@@ -1,5 +1,6 @@
 ---
-import EDIllustration from "../assets/EDIllustration.astro";
+import { Image } from "astro:assets";
+import EventDestinations from "../assets/event-destinations.png";
 ---
 
 <h1 class="bold-l">The Event Destinations Initiative</h1>
@@ -9,7 +10,7 @@ import EDIllustration from "../assets/EDIllustration.astro";
   efficiency.
 </p>
 <div class="img-wrapper">
-  <EDIllustration />
+  <Image src={EventDestinations} alt="Event Destinations" />
 </div>
 
 <style>

@@ -1,7 +1,8 @@
 ---
-import WebhooksIllustration from "../assets/WebhooksIllustration.astro";
+import Webhooks from "../assets/webhooks.png";
 import PatrickMalatack from "../assets/PatrickMalatack.png";
 import Quote from "./Quote.astro";
+import { Image } from "astro:assets";
 ---
 
 <h3 class="bold-m">A decade of webhooks: Progress with limits</h3>
@@ -65,7 +66,7 @@ import Quote from "./Quote.astro";
   efficient event destinations?
 </p>
 <div class="img-wrapper">
-  <WebhooksIllustration />
+  <Image src={Webhooks} alt="Webhooks" />
 </div>
 <h3 class="bold-m">The emergence of event destinations</h3>
 <p class="muted">
