@@ -109,9 +109,13 @@ const sections = {
   const navLinks = document.querySelectorAll("header ul a");
   const sections = document.querySelectorAll("section[id]");
 
+  console.log(sections);
+
   const createObserverCallback =
     (isLastSection: boolean) => (entries: IntersectionObserverEntry[]) => {
+      console.log({ isLastSection });
       entries.forEach((entry) => {
+        console.log({ entry, isIntersecting: entry.isIntersecting });
         if (entry.isIntersecting) {
           // Remove active class from all links
           navLinks.forEach((link) => link.classList.remove("active"));
@@ -119,13 +123,37 @@ const sections = {
           // For the last section, only activate if scrolled near bottom
           if (isLastSection) {
             const scrollPosition = window.scrollY + window.innerHeight;
-            const nearBottom =
-              document.documentElement.scrollHeight - scrollPosition < 100;
-            if (!nearBottom) return;
+            const nearBottomCalc =
+              document.documentElement.scrollHeight - scrollPosition;
+            const nearBottom = nearBottomCalc < 405;
+            console.log({
+              nearBottom,
+              scrollHeight: document.documentElement.scrollHeight,
+              scrollPosition,
+              nearBottomCalc,
+            });
+            // if (!nearBottom) {
+            //   // If scrolling up past the last section, mark the 2nd last section as active
+            //   const secondLastSection = sections[sections.length - 2];
+            //   const activeLink = document.querySelector(
+            //     `header ul a[href="#${secondLastSection.id}"]`
+            //   );
+            //   if (activeLink) {
+            //     activeLink.classList.add("active");
+
+            //     // Update the section button text to match active link
+            //     if (sectionButton) {
+            //       const buttonText = sectionButton.childNodes[0];
+            //       buttonText.textContent = activeLink.textContent;
+            //     }
+            //   }
+            //   return;
+            // }
           }
 
           // Add active class to corresponding nav link
           const activeId = entry.target.id;
+          console.log({ activeId });
           const activeLink = document.querySelector(
             `header ul a[href="#${activeId}"]`
           );
