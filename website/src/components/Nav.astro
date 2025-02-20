@@ -111,40 +111,36 @@ const sections = {
 
   const createObserverCallback =
     (isLastSection: boolean) => (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Remove active class from all links
-          navLinks.forEach((link) => link.classList.remove("active"));
+      let activeId = entries.find((entry) => entry.isIntersecting)?.target.id;
 
-          // For the last section, only activate if scrolled near bottom
-          if (isLastSection) {
-            const scrollPosition = window.scrollY + window.innerHeight;
-            const nearBottom =
-              document.documentElement.scrollHeight - scrollPosition < 100;
-            if (!nearBottom) return;
-          }
+      // Catch scrolling up from the last section
+      if (!activeId && isLastSection) {
+        activeId = sections[sections.length - 2].id;
+      }
 
-          // Add active class to corresponding nav link
-          const activeId = entry.target.id;
-          const activeLink = document.querySelector(
-            `header ul a[href="#${activeId}"]`
-          );
-          if (activeLink) {
-            activeLink.classList.add("active");
+      if (activeId) {
+        // Remove active class from all links
+        navLinks.forEach((link) => link.classList.remove("active"));
 
-            // Update the section button text to match active link
-            if (sectionButton) {
-              // Extract just the text content, removing the SVG
-              const buttonText = sectionButton.childNodes[0];
-              buttonText.textContent = activeLink.textContent;
-            }
+        // Add active class to corresponding nav link
+        const activeLink = document.querySelector(
+          `header ul a[href="#${activeId}"]`
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
+
+          // Update the section button text to match active link
+          if (sectionButton) {
+            // Extract just the text content, removing the SVG
+            const buttonText = sectionButton.childNodes[0];
+            buttonText.textContent = activeLink.textContent;
           }
         }
-      });
+      }
     };
 
   const observer = new IntersectionObserver(createObserverCallback(false), {
-    rootMargin: "-10% 0px -60% 0px",
+    rootMargin: "-30% 0px -30% 0px",
     threshold: 0,
   });
 
@@ -355,7 +351,7 @@ const sections = {
           &:after {
             content: "";
             position: absolute;
-            bottom: -1px;
+            bottom: 0px;
             left: 0;
             right: 0;
             height: 2px;
@@ -367,7 +363,7 @@ const sections = {
           &:after {
             content: "";
             position: absolute;
-            bottom: -1px;
+            bottom: 0px;
             left: 0;
             right: 0;
             height: 2px;
