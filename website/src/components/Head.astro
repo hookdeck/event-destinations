@@ -11,6 +11,9 @@ const baseUrl =
   import.meta.env.MODE === "development"
     ? Astro.url.origin
     : "https://eventdestinations.org";
+
+const PUBLIC_CUSTOM_HEAD_CONTENT =
+  import.meta.env.PUBLIC_CUSTOM_HEAD_CONTENT || "";
 ---
 
 <meta charset="utf-8" />
@@ -36,4 +39,4 @@ const baseUrl =
   content={`${baseUrl}/images/event-destinations-og.png`}
 />
 
-<PostHogScript />
+<Fragment set:html={PUBLIC_CUSTOM_HEAD_CONTENT} />
