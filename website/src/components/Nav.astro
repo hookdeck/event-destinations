@@ -113,8 +113,13 @@ const sections = {
     (isLastSection: boolean) => (entries: IntersectionObserverEntry[]) => {
       let activeId = entries.find((entry) => entry.isIntersecting)?.target.id;
 
+      // For the last section, only activate if scrolled near bottom
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const calc = document.documentElement.scrollHeight - scrollPosition;
+      const nearBottom = calc < 500;
+
       // Catch scrolling up from the last section
-      if (!activeId && isLastSection) {
+      if (nearBottom && !activeId && isLastSection) {
         activeId = sections[sections.length - 2].id;
       }
 
