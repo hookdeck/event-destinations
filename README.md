@@ -42,9 +42,9 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to contribute to this repos
 
 We use GitHub Discussions for:
 
-- [General discussions](https://github.com/hookdeck/eventdestinations/discussions/new?category=ideas)
-- [New ideas](https://github.com/hookdeck/eventdestinations/discussions/new?category=ideas)
-- [Q&A](https://github.com/hookdeck/eventdestinations/discussions/new?category=q-a)
+- [General discussions](https://github.com/hookdeck/event-destinations/discussions/new?category=ideas)
+- [New ideas](https://github.com/hookdeck/event-destinations/discussions/new?category=ideas)
+- [Q&A](https://github.com/hookdeck/event-destinations/discussions/new?category=q-a)
 
 ## Related Initiatives
 
