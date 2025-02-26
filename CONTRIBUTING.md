@@ -5,7 +5,7 @@
 You can contribute to the specification in the following ways:
 
 - **Simple and small changes**: raise a pull request. For example, language fixes or clarifications.
-- **Complex or large changes**: begin by creating a [new discussion](https://github.com/hookdeck/eventdestinations/discussions/new?category=ideas), sharing your proposed change and why you believe the change should be considered.
+- **Complex or large changes**: begin by creating a [new discussion](https://github.com/hookdeck/event-destinations/discussions/new?category=ideas), sharing your proposed change and why you believe the change should be considered.
 
 ## Event Destinations Initiative Website
 
