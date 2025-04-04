@@ -4,7 +4,7 @@ import EventDestinations from "../assets/event-destinations.png";
 ---
 
 <h1 class="bold-l">The Event Destinations Initiative</h1>
-<p class="muted regular-m">
+<p class="muted regular-m first">
   A model for event interoperability between event producers and their consumers
   to favor better developer experience, robust integration, and infrastructural
   efficiency.
@@ -12,6 +12,13 @@ import EventDestinations from "../assets/event-destinations.png";
 <div class="img-wrapper">
   <Image src={EventDestinations} alt="Event Destinations" />
 </div>
+<h3 class="bold-m">What are Event Destinations?</h3>
+<p class="muted regular-m">
+  Event Destinations are endpoints where event producers, such as API Platforms
+  and SaaS, deliver events. Examples of destination types include AWS SQS, GCP
+  Pub/Sub, Hookdeck Event Gateway, RabbitMQ, Amazon EventBridge, Kafka,
+  Webhooks, and more.
+</p>
 
 <style>
   h1 {
@@ -19,7 +26,7 @@ import EventDestinations from "../assets/event-destinations.png";
     margin-top: calc(100px - var(--spacing-8));
   }
 
-  p {
+  p.first {
     margin-top: 0;
   }
 </style>
